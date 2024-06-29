@@ -1,0 +1,110 @@
+.details-container {
+    display: flex;
+    justify-content: space-between; /* Adjusts spacing between left and right sections */
+    margin: 20px auto; /* Centers container horizontally and adds vertical margin */
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 1200px; /* Optional: limit the max-width for better readability */
+  }
+  
+  .details-left, .details-right {
+    flex: 1; /* Allows sections to grow and take up available space */
+    margin: 10px; /* Margin between sections */
+  }
+  
+  .details-left {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .details-left h2 {
+    margin-top: 0;
+    color: #061fc1;
+  }
+  
+  .details-left p {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+  
+  .details-right {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .details-right h3 {
+    margin-top: 0;
+    color: #061fc1;
+  }
+  
+  .review-container {
+    margin-top: 20px;
+  }
+  
+  .review {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .review-owner {
+    font-weight: bold;
+    color: #061fc1;
+  }
+  
+  .review-text {
+    color: #333;
+  }
+  
+  .review-rating {
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  button {
+    background-color: #061fc1;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #050d8e;
+  }
+  
+  @media (max-width: 600px) {
+    .details-container {
+      flex-direction: column;
+      align-items: center; /* Centers the items vertically on smaller screens */
+    }
+  
+    .details-left, .details-right {
+      width: 90%;
+      margin: 10px 0; /* Margin between sections on smaller screens */
+    }
+  }
+  

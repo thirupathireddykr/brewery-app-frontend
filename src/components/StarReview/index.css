@@ -1,0 +1,34 @@
+/* StarReview.css */
+
+.star-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.star {
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: #c0c0c0;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.star.rated {
+  color: #ffd700;
+}
+
+@media (max-width: 600px) {
+  .star-container {
+    margin: 5px 0;
+  }
+
+  .star {
+    margin: 0 5px;
+    font-size: 20px;
+  }
+}
