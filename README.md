@@ -17,6 +17,9 @@ Before you begin, ensure you have met the following requirements:
 
 - Node.js and npm installed
 
+## Backend URL
+https://github.com/thirupathireddykr/brewery-app-backend.git
+
 ## Getting Started
 
 ### Clone the Repository
