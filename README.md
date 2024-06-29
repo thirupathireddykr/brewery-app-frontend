@@ -22,8 +22,8 @@ Before you begin, ensure you have met the following requirements:
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/yourusername/frontend-repo.git
-cd frontend-repo
+git clone https://github.com/thirupathireddykr/brewery-app-frontend.git
+cd brewery-app-frontend
 
 ### Install Dependencies
 
