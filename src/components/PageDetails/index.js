@@ -22,7 +22,7 @@ const PageDetails = () => {
         setDetails(response.data);
 
         const reviewsResponse = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/reviews/${id}`
+          ` http://localhost:5000/api/reviews/${id}`
         );
         console.log(reviewsResponse);
         setReviews(reviewsResponse.data.reviews);
@@ -40,7 +40,7 @@ const PageDetails = () => {
     const token = `bearer ${localStorage.getItem("token")}`;
     console.log(rating);
     await axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/api/add`, {
+      .post(` http://localhost:5000/api/add`, {
         newReview,
         rating,
         id: details.id,

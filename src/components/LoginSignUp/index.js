@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './index.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { message } from 'antd'; 
 
 const LoginSignup = () => {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const [login, setLogin] = useState(true);
   const [formData, setFormData] = useState({
     username: '',
@@ -20,24 +21,28 @@ const LoginSignup = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    console.log("Form submitted with data:", formData);
+  
     try {
       if (login) {
-        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/login`, formData);
-        console.log(response.data);
+        const response = await axios.post(`http://localhost:5000/api/login`, formData);
+        console.log("Login response:", response.data);
         if (response.data.success) {
           localStorage.setItem('token', response.data.token);
-          navigation('/home');
+          console.log("Navigating to /home");
+          navigate('/Home');  // Use navigate here
+        } else {
+          console.log("Login failed:", response.data.message);
         }
       } else {
-        const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, formData);
-        console.log(response.data);
+        const response = await axios.post(`http://localhost:5000/api/register`, formData);
+        console.log("Register response:", response.data);
         localStorage.setItem('token', response.data.token);
         message.success('User created successfully. Switching to login.');
-
+  
         // Switch to login form
         setLogin(true);
-
+  
         // Clear form inputs
         setFormData({
           username: '',
@@ -46,10 +51,10 @@ const LoginSignup = () => {
         });
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting form:', error.response ? error.response.data : error.message);
       message.error('Error submitting form. Please try again.');
     }
-  };
+  };  
 
   const toggleForm = () => {
     setLogin((prevLogin) => !prevLogin);
@@ -94,7 +99,7 @@ const LoginSignup = () => {
             required
           />
         </div>
-        <button type="submit">{login ? 'Login' : 'Sign Up'}</button>
+        <button type="submit">{login ? <Link to={`/Home`}><span className='login'>Login</span></Link> : 'Sign Up'}</button>
         <p onClick={toggleForm}>
           {login ? 'Need an account? Sign up' : 'Already have an account? Login'}
         </p>
