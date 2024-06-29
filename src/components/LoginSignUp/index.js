@@ -25,7 +25,7 @@ const LoginSignup = () => {
   
     try {
       if (login) {
-        const response = await axios.post(`brewery-app-backend-git-master-thirupathireddy-s-projects.vercel.app/api/login`, formData);
+        const response = await axios.post(`http://localhost:5000/api/login`, formData);
         console.log("Login response:", response.data);
         if (response.data.success) {
           localStorage.setItem('token', response.data.token);
@@ -35,7 +35,7 @@ const LoginSignup = () => {
           console.log("Login failed:", response.data.message);
         }
       } else {
-        const response = await axios.post(`brewery-app-backend-git-master-thirupathireddy-s-projects.vercel.app/api/register`, formData);
+        const response = await axios.post(`http://localhost:3000/api/register`, formData);
         console.log("Register response:", response.data);
         localStorage.setItem('token', response.data.token);
         message.success('User created successfully. Switching to login.');
